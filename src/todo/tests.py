@@ -8,7 +8,7 @@ def createItem(client):
   url = reverse('todoitem-list')
   data = {'title': 'Walk the dog'}
   return client.post(url, data, format='json')
-
+1_CREATED) 
 class TestCreateTodoItem(APITestCase):
   """
   Ensure we can create a new todo item
@@ -17,7 +17,7 @@ class TestCreateTodoItem(APITestCase):
     self.response = createItem(self.client)
 
   def test_received_201_created_status_code(self):
-    self.assertEqual(self.response.status_code, status.HTTP_201_CREATED)
+    self.assertEqual(self.response.status_code, status.HTTP_200_OK)
 
   def test_received_location_header_hyperlink(self):
     self.assertRegexpMatches(self.response['Location'], '^http://.+/todos/[\d]+$')

@@ -52,9 +52,6 @@ services:
     expose:
       - "3306"
     environment:
-      MYSQL_DATABASE: todobackend
-      MYSQL_USER: todo
-      MYSQL_PASSWORD: password
       MYSQL_ROOT_PASSWORD: password
 
   agent:

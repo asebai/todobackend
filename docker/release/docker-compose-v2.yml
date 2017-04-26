@@ -47,8 +47,18 @@ services:
     volumes:
       - webroot:/var/www/todobackend
 
+    agent:
+        image: leletir/ansible
+        links:
+          - db
+        environment:
+          PROBE_HOST: "db"
+          PROBE_PORT: "3306"
+        command: ["probe.yml"]
+
   db:
     image: mysql:latest
+    hostname: db
     expose:
       - "3306"
     environment:
@@ -57,11 +67,3 @@ services:
       MYSQL_PASSWORD: password
       MYSQL_ROOT_PASSWORD: password
 
-  agent:
-    image: leletir/ansible
-    links:
-      - db
-    environment:
-      PROBE_HOST: "db"
-      PROBE_PORT: "3306"
-    command: ["probe.yml"]

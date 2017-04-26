@@ -56,6 +56,8 @@ services:
       MYSQL_USER: todo
       MYSQL_PASSWORD: password
       MYSQL_ROOT_PASSWORD: password
+    volumes:
+        - ./mysql/:/var/lib/mysql
 
   agent:
     image: leletir/ansible

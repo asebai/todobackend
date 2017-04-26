@@ -48,7 +48,7 @@ services:
       - webroot:/var/www/todobackend
 
   db:
-    image: mysql:5.6
+    image: mysql:latest
     expose:
       - "3306"
     environment:

@@ -50,14 +50,12 @@ services:
   db:
     image: mysql:latest
     expose:
-      - "3306"
+      - "3307"
     environment:
       MYSQL_DATABASE: todobackend
       MYSQL_USER: todo
       MYSQL_PASSWORD: password
       MYSQL_ROOT_PASSWORD: password
-    volumes:
-        - ./mysql/:/var/lib/mysql
 
   agent:
     image: leletir/ansible
@@ -65,5 +63,5 @@ services:
       - db
     environment:
       PROBE_HOST: "db"
-      PROBE_PORT: "3306"
+      PROBE_PORT: "3307"
     command: ["probe.yml"]

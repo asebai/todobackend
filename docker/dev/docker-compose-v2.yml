@@ -46,7 +46,5 @@ services:
     hostname: db
     expose:
       - "3306"
-    volumes:
-        - ./mysql/:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: password

@@ -6,7 +6,7 @@ volumes:
 
 services:
   app:
-    build: 
+    build:
       context: ../../
       dockerfile: docker/release/Dockerfile
     links:
@@ -37,7 +37,7 @@ services:
     command: --reporter mocha-jenkins-reporter
 
   nginx:
-    build: 
+    build:
       context: .
       dockerfile: Dockerfile.nginx
     links:
@@ -66,4 +66,3 @@ services:
       MYSQL_USER: todo
       MYSQL_PASSWORD: password
       MYSQL_ROOT_PASSWORD: password
-

@@ -26,7 +26,15 @@ node {
 
         sh "make publish"
 
-
+        stage('Deploy release') {
+            sh "printf \$(git rev-parse --short HEAD) > tag.tmp"
+            def imageTag = readFile 'tag.tmp'
+            build job: DEPLOY_JOB, parameters: [[
+                $class: 'StringParameterValue',
+                name: 'IMAGE_TAG',
+                value: 'leletir/todobackend' + imageTag
+            ]]
+        }
     }
     finally {
         stage 'Collect tests reports'

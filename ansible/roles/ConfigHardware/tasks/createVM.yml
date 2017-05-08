@@ -5,7 +5,7 @@
     cloud: citycloud
     name: vm3
     image: 2feddaee-7c0d-4de1-a9c6-4a1c6be49cad
-    key_name: ssh-gitServer
+    key_name: Jenkins_Key
     timeout: 200
     flavor: 2C-2GB-20GB
     security_groups: test-security,default

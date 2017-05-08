@@ -1,0 +1,9 @@
+---
+- hosts: vm3              # define 'docker' as our action target
+  remote_user: "{{remote_user}}" #define user account for ssh login
+  become: yes
+  become_method: sudo
+  serial: 1          #define the action will be done one by one
+  tasks:
+  - include: roles/common/tasks/createUser.yml     #define 'common' role should be apply to hosts
+  - include: roles/dockers/tasks/install_docker.yml     #define 'docker' role should be apply to hosts

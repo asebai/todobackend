@@ -3,6 +3,10 @@ node {
 
     try {
 
+        stage('Build Test Server') {
+            sh 'ansible-playbook ansible/roles/ConfigHardware/tasks/main.yml'
+        }
+
         stage('Run unit/integration tests') {
             sh 'make test'
         }

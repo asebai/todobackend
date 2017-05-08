@@ -1,0 +1,4 @@
+---
+- name: setup Action User
+  user: generate_ssh_key=yes name=testUser password={{  'Test1234' | password_hash('sha512') }} shell=/bin/bash
+  #user: generate_ssh_key=yes name={{action_user}} password={{action_user_pw | password_hash('sha512') }} shell=/bin/bash

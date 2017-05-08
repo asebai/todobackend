@@ -1,0 +1,7 @@
+---
+- name: Create an externally accessible network named 'ext_network'.
+  os_network:
+    cloud: citycloud
+    state: present
+    name: test_network
+    external: true

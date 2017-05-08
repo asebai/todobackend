@@ -1,0 +1,60 @@
+---
+- name: launch an instance
+  os_server:
+    state: present
+    cloud: citycloud
+    name: vm3
+    image: 2feddaee-7c0d-4de1-a9c6-4a1c6be49cad
+    key_name: ssh-gitServer
+    timeout: 200
+    flavor: 2C-2GB-20GB
+    security_groups: test-security,default
+    userdata: |
+      #cloud_config:
+        package_update: true
+        package_upgrade: true
+        package_reboot_if_required: true
+        hostname: 'gitServer'
+        write_files:
+          -content: |
+              # My new /etc/hosts file
+              127.0.0.1 localhost
+              127.0.1.1 gitServer
+              # The following lines are desirable for IPv6 capable hosts
+              ::1 ip6-localhost ip6-loopback
+              fe00::0 ip6-localnet
+              ff00::0 ip6-mcastprefix
+              ff02::1 ip6-allnodes
+              ff02::2 ip6-allrouters
+              ff02::3 ip6-allhosts
+          path: /etc/hosts
+        packages: apt-transport-https,ca-certificates,curl,software-properties-common,linux-image-extra-virtual,certbot
+        fs_setup:
+            ## rkt
+          - device: /dev/vdb
+            partition: 'auto'
+            label: rkt
+            filesystem: ext4
+        mounts:
+            - [ "LABEL=rkt", /mnt/docker_data ]
+        runcmd:
+          - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+          - add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+          - apt-get update
+          - apt-get install -y docker-ce
+        users:
+          - default
+          - name: gitAdmin
+            plain_text_passwd: 'ubuntu'
+            sudo: ALL=(ALL) NOPASSWD:ALL
+            home: /home/gitAdmin
+            shell: /bin/bash
+            lock_passwd: True
+            gecos: Ubuntu
+            groups: [adm, audio, cdrom, dialout, floppy, video, plugdev, dip, netdev, docker]
+            ssh-authorized-keys:
+              - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCj1RkWnqvkuNo8zbm9yRA/bwXdqL1+d4vAFjO3dMMhCB+15s3f0b2G8oLKs7WsJgeVJl5ya/i3h4AXZKs1C7cT8Nipb7MMMo1SbVkcBglbEVMsJRWSRxnWfDl525CE5PiJK04ATBgSByfyE3vRvN406Wvde6EzF2x+IPohu69GfQuOh7jBs7aUoXuII4oyZ3U38Tf5gLL2LrvMaFsK9ggHzjB07aBeiz/Ve36bytsTUwvNsotdCeijKlCkDbzXcq+Ygvz83Um5NRJLAwXV1qKbJ28iy1qGgs9IHNUU+QR9Nrh/z92tiv9mhbiE7J9ys6+c8H1eFYsWX29gb5+hMpU7z0tya5nDjUV7nJAOp9Dg7ZA3UawkUilP3rRumluxMUowM3nOMI34Ef8u9qMvhae5o19DhVvsGhlVO/CruvLYzPJjQyE3V+srqNV6nF/2lzbF6Z/xTDEwwVc59Cu/yXG4MGB0KZH3mVko1dSzg6Xy+FW6P9Ef9u7TheHwOYp8c848/J/uUiq9PQd3ph4YGcrmBmug499o7cPNOJfV//EeTjdDFEZ+l6Ght0faTwcl8nneWxK6GhOJtp5mIleHnyYNuVcjURwOQ34fr97EFfMu+qjNBjEJmFqPiO5KuGOZUTGpr9YQ8t2XHa12DrRc96lfUgjwJ3KKpgPLXdXM2keDYQ== pleclercq@pleclercq-Precision-7510
+        output: {all: '| tee -a /var/log/cloud-init-output.log'}
+        final_message: "The system is finally up, after $UPTIME seconds"
+    nics:
+      - net-name: test_network

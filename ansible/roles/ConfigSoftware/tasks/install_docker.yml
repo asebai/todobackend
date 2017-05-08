@@ -1,0 +1,17 @@
+---
+- name: Install pre requisites
+  command: sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common
+- name: install docker
+  command: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+- name: add deb repo
+  command: sudo touch /etc/apt/sources.list.d/docker.list
+- lineinfile: dest="/etc/apt/sources.list.d/docker.list" line="{{item}}"
+  with_items:
+    - "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable"
+- name: apt update
+  apt: update_cache=yes
+- apt: name=docker-ce state=present
+- name: add user mod
+  command: sudo usermod -aG docker ubuntu
+- name: add user mod
+  command: sudo usermod -aG docker testUser

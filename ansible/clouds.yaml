@@ -1,0 +1,10 @@
+clouds:
+  citycloud:
+    region_name: Fra1
+    auth:
+      username: pierre.job
+      password: hpyyuh
+      tenant_id: 422c0ca15639451abd47be1c2ef2e8d9
+      project_id: 422c0ca15639451abd47be1c2ef2e8d9
+      auth_url: https://identity1.citycloud.com:5000/v3/
+      user_domain_id: 15cf2c3c058841ef9c37d564894d8f87

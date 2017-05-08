@@ -8,8 +8,10 @@ node {
         }
 
         stage('Install Test Env') {
-                    sh 'ansible-playbook ansible/roles/ConfigSoftware/tasks/main.yml'
-                }
+            sh 'ansible-playbook ansible/roles/ConfigSoftware/tasks/main.yml -i /etc/ansible/hosts'
+        }
+
+
 
         stage('Run unit/integration tests') {
             sh 'make test'

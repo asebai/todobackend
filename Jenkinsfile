@@ -8,7 +8,7 @@ node {
         }
 
         stage('Install Test Env') {
-            sh 'ansible-playbook ansible/roles/ConfigSoftware/tasks/main.yml -i openstack.py'
+            sh 'ANSIBLE_HOST_KEY_CHECKING=false ansible-playbook ansible/roles/ConfigSoftware/tasks/main.yml -i openstack.py'
         }
 
 

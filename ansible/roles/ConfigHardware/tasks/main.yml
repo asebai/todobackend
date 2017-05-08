@@ -4,6 +4,5 @@
   connection: local
   gather_facts: no
   tasks:
-    - include: createNetwork.yml
     - include: createSecurityGroup.yml
     - include: createVM.yml

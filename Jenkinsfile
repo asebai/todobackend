@@ -4,11 +4,11 @@ node {
     try {
 
         stage('Build Test Server') {
-            sh 'ansible-playbook ansible/roles/ConfigHardware/tasks/main.yml'
+            sh 'ansible-playbook ansible/roles/ConfigHardware/tasks/main.yml -i openstack.py'
         }
 
         stage('Install Test Env') {
-            sh 'ansible-playbook ansible/roles/ConfigSoftware/tasks/main.yml -i /etc/ansible/hosts'
+            sh 'ansible-playbook ansible/roles/ConfigSoftware/tasks/main.yml -i openstack.py'
         }
 
 

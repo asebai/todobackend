@@ -3,5 +3,5 @@
   os_network:
     cloud: citycloud
     state: present
-    name: test_network
+    name: test_network2
     external: true

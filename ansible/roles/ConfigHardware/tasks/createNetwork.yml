@@ -3,5 +3,6 @@
   os_network:
     cloud: citycloud
     state: present
-    name: test_network2
+    provider_physical_network: ext-net
+    name: test_network
     external: true

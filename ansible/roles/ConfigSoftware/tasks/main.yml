@@ -1,6 +1,6 @@
 ---
 - hosts: vm3              # define 'docker' as our action target
-  remote_user: "{{remote_user}}" #define user account for ssh login
+  remote_user: gitAdmin #define user account for ssh login
   become: yes
   become_method: sudo
   serial: 1          #define the action will be done one by one

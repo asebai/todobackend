@@ -7,6 +7,10 @@ node {
             sh 'ansible-playbook ansible/roles/ConfigHardware/tasks/main.yml'
         }
 
+        stage('Install Test Env') {
+                    sh 'ansible-playbook ansible/roles/ConfigSoftware/tasks/main.yml'
+                }
+
         stage('Run unit/integration tests') {
             sh 'make test'
         }

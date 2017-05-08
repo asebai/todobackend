@@ -1,6 +1,7 @@
 ---
 - name: VM Hardware Configuration Playbook
   hosts: localhost
+  cloud: citycloud
   connection: local
   gather_facts: no
   tasks:

@@ -45,7 +45,7 @@
         users:
           - default
           - name: gitAdmin
-            plain_text_passwd: 'ubuntu'
+            plain_text_passwd: 'Test1234'
             sudo: ALL=(ALL) NOPASSWD:ALL
             home: /home/gitAdmin
             shell: /bin/bash

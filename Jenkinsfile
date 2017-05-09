@@ -11,8 +11,6 @@ node {
             sh 'ANSIBLE_HOST_KEY_CHECKING=false ansible-playbook ansible/roles/ConfigSoftware/tasks/main.yml -i openstack.py'
         }
 
-
-
         stage('Run unit/integration tests') {
             sh 'make test'
         }

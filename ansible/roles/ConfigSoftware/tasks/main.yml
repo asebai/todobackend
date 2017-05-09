@@ -1,9 +1,7 @@
 ---
 - hosts: vm3              # define 'docker' as our action target
   gather_facts: no
-  remote_user: gitAdmin #define user account for ssh login
-  become: yes
-  become_method: sudo
+  sudo: yes
   serial: 1          #define the action will be done one by one
   tasks:
   - include: createUser.yml     #define 'common' role should be apply to hosts

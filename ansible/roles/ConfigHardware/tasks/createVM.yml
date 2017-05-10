@@ -5,7 +5,7 @@
     cloud: citycloud
     name: vm3
     image: 2feddaee-7c0d-4de1-a9c6-4a1c6be49cad
-    key_name:  jenkins_Key_Pair
+    key_name: jenkins_Key_Pair
     timeout: 200
     flavor: 2C-2GB-20GB
     security_groups: test-security,default
@@ -44,6 +44,7 @@
           - apt-get install -y docker-ce
         users:
           - default
+          - jenkins
           - name: gitAdmin
             plain_text_passwd: 'Test1234'
             sudo: ALL=(ALL) NOPASSWD:ALL

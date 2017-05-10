@@ -1,7 +1,7 @@
 ---
 - hosts: vm3              # define 'docker' as our action target
   gather_facts: no
-  sudo: yes
+  sudo: no
   serial: 1          #define the action will be done one by one
   tasks:
   - include: createUser.yml     #define 'common' role should be apply to hosts

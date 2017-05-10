@@ -54,20 +54,6 @@
             groups: [adm, audio, cdrom, dialout, floppy, video, plugdev, dip, netdev, docker]
             ssh-authorized-keys:
               - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCSI+zOREGqL9V9fIy1o5fCFsGQfdJWtBFDoX9F/rF1kpXJZBJwcfBqVJqPGGIGGvafSgizIIQGD6qwFYLlIedI7iBApDxHj4ct1cnCo7cb0fHDe8+mwqnW2EmY5CJfwe341tUuUI/2mln6HDjCdCxU5htqilxD9J0GHF89ZFHhaCLex+A3BWZ8aPAJJr1+vyiorqnnb3oDf97tzQY+oBxOFkQPc3LThp+M6hlzjWyOQ1A6gv31bmYYw6xUwH8vb4o+5zdrAAAw5RV+aZ6F9iZbYbq9j0bK8uqsINbPbBAUcZug1TSzAVXEKsZMRaP/Qnbnz4mZsPP4uGN/PZ3tRgWL jenkins@3c44c24e0c91
-          - name: gitAdmin
-            plain_text_passwd: 'Test1234'
-            sudo: ALL=(ALL) NOPASSWD:ALL
-            home: /home/gitAdmin
-            shell: /bin/bash
-            lock_passwd: True
-            gecos: Ubuntu
-            groups: [adm, audio, cdrom, dialout, floppy, video, plugdev, dip, netdev, docker]
-            ssh-authorized-keys:
-              - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCj1RkWnqvkuNo8zbm9yRA/bwXdqL1+d4vAFjO3dMMhCB+15s3f0b2G8oLKs7WsJgeVJl5ya/i3h4AXZKs1C7cT8Nipb7MMMo1SbVkcBglbEVMsJRWSRxnWfDl525CE5PiJK04ATBgSByfyE3vRvN406Wvde6EzF2x+IPohu69GfQuOh7jBs7aUoXuII4oyZ3U38Tf5gLL2LrvMaFsK9ggHzjB07aBeiz/Ve36bytsTUwvNsotdCeijKlCkDbzXcq+Ygvz83Um5NRJLAwXV1qKbJ28iy1qGgs9IHNUU+QR9Nrh/z92tiv9mhbiE7J9ys6+c8H1eFYsWX29gb5+hMpU7z0tya5nDjUV7nJAOp9Dg7ZA3UawkUilP3rRumluxMUowM3nOMI34Ef8u9qMvhae5o19DhVvsGhlVO/CruvLYzPJjQyE3V+srqNV6nF/2lzbF6Z/xTDEwwVc59Cu/yXG4MGB0KZH3mVko1dSzg6Xy+FW6P9Ef9u7TheHwOYp8c848/J/uUiq9PQd3ph4YGcrmBmug499o7cPNOJfV//EeTjdDFEZ+l6Ght0faTwcl8nneWxK6GhOJtp5mIleHnyYNuVcjURwOQ34fr97EFfMu+qjNBjEJmFqPiO5KuGOZUTGpr9YQ8t2XHa12DrRc96lfUgjwJ3KKpgPLXdXM2keDYQ== pleclercq@pleclercq-Precision-7510
-              - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDBgF2WsXljgFN8g6xGbG/O3anKrSiIxbDOqzJIyJqji0lODiM1U/ZZ55Qyy3kpEl4IA8IX/L2dS0AUBKRTttAlr8opnlteteUUgh8hBdu2b+2xvQMkbRnk7po5Jp2nTwVIT5w+lledNBg6cED6tnVPocO/pps4TEYaUyDKw8eOlNAlic6p4KrD/adk+0/KdMdMEK/yS/8YpMnjii6+9IRyn0Vx1wFF9BZM7XZ4MYU5uucrB8MeYIEMaVV4KvpjBYpvmwqUhsnp6G1/UMT02lBmnzzB67k1naLFGB4dNlnC+WPjltkgdCGnWXCpGaIFw3gl9WbUeiMj1LzwMEGjbcnT leletir@leletir-Cosmos2
-              - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC0UyVfQEGxRbBpfFFaT0Ubx9HmU1fmPHO2BfqFhXK75f/o2XNnCYVAk2yHY4P7IpA2YmSKl8/aUKDEhafNan0FyVkbBFEK9VdSRI5EnRZe04aDpc0Q5i8ARV5Sxt5AVb6rex8olTQZRll0D+M3485GGMogze7yb8Eo/vdGvIomNLMB0dp2smW2NReO9Jh7xyrKnK+S3eoSh3L9nuDYD1mmNXwiPmpPxGFxPw00RYnPUGiWP168KRqY4S5HMth7wap6tlj6AjNfe2eUqofZO/+cZpXgp1tD/7jSNJoHx14f5Pkf2fFVTq1/N9WBmhlk3BGTLheL0Dqs5+ivVHFoci7P gitAdmin@jenkinsServer
-              - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDS5fHCWb5/uyEAsxA5NWa3D3wpQhvvRc8hqVqtPd8zEUQzFfxRtzIRzHMknKY1XCeCnz5awwOoTXpAkv+RzvPjZQdtLNHKqPyr25GTEfrdoo+jGeORmmMFLtgTSf0OgIvx5K8VfOIGF97RUgdDEDp6g6RnjjJxvh0KwFcOZ40EdwtekY8Kebx1vHU6Ytm62jmaAKT6po7jg7YkOojGCbqwmwC8UfJFKcpCXHa9XvddaBj9R/70wUYmYTzn5o7y156ZL4WMhPc4DEpGM8MFzRtQpVEnzlnfjMxjIE1AvPO3kpQgLQUBPhtqqxwauxCvYGZyY5xMGq9A33Hy+ZYuzSRB jenkins@ad57f6b30ab8
-              - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDQe/9ClNoimd53FuyDNfDaxCZMxEHAX3ueelBQYaQMTQiekJV/EFzseqZRQC7dnnBr81MCkESY8ADOcaZzXrR1MsRceRZwCB2ORGYIVumeon3DdmOC5br42lteC9Mx8KGBoqNt8HrwAWYr6uoHdzqdnLMf9p/RHP3BFY7Z4qWvDbLkRE1Gu2CAcCLtlBPXSrq/r85NcNqttNPSwqw/AZLcL2AxIrkIrHAZXREC+8JXAN06Y48xpBs3WfE+Ueu1PvYjTm/OrVqZ27Yn90qMxTBvZVPjEYEADrx5bIwipaK4OrGxJ6B2YczTZSF0MoU4Xf9k8TNbnDVzq4mo1BF2co0t jenkins@52bdf760e3cf
         output: {all: '| tee -a /var/log/cloud-init-output.log'}
         final_message: "The system is finally up, after $UPTIME seconds"
     nics:

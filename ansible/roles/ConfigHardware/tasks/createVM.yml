@@ -44,7 +44,16 @@
           - apt-get install -y docker-ce
         users:
           - default
-          - jenkins
+          - name: jenkins
+            plain_text_passwd: 'Test1234'
+            sudo: ALL=(ALL) NOPASSWD:ALL
+            home: /home/jenkins
+            shell: /bin/bash
+            lock_passwd: True
+            gecos: Ubuntu
+            groups: [adm, audio, cdrom, dialout, floppy, video, plugdev, dip, netdev, docker]
+            ssh-authorized-keys:
+              - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCSI+zOREGqL9V9fIy1o5fCFsGQfdJWtBFDoX9F/rF1kpXJZBJwcfBqVJqPGGIGGvafSgizIIQGD6qwFYLlIedI7iBApDxHj4ct1cnCo7cb0fHDe8+mwqnW2EmY5CJfwe341tUuUI/2mln6HDjCdCxU5htqilxD9J0GHF89ZFHhaCLex+A3BWZ8aPAJJr1+vyiorqnnb3oDf97tzQY+oBxOFkQPc3LThp+M6hlzjWyOQ1A6gv31bmYYw6xUwH8vb4o+5zdrAAAw5RV+aZ6F9iZbYbq9j0bK8uqsINbPbBAUcZug1TSzAVXEKsZMRaP/Qnbnz4mZsPP4uGN/PZ3tRgWL jenkins@3c44c24e0c91
           - name: gitAdmin
             plain_text_passwd: 'Test1234'
             sudo: ALL=(ALL) NOPASSWD:ALL
